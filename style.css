@@ -1,0 +1,1849 @@
+/* =====================================================
+   GURLEEN — CINEMATIC CONFESSION
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+    --pink: #ff9fc5;
+    --pink-light: #ffd7e7;
+    --white: #fff8fc;
+    --purple: #b994ff;
+    --gold: #ffe2a8;
+    --dark: #090611;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+body {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    background: #090611;
+
+    color: var(--white);
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+#app {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   BACKGROUNDS
+===================================================== */
+
+#background {
+    position: fixed;
+    inset: 0;
+
+    z-index: 0;
+
+    overflow: hidden;
+}
+
+
+.background-layer {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0;
+
+    transform: scale(1.08);
+
+    transition:
+        opacity 1.2s ease,
+        transform 2s ease;
+
+    pointer-events: none;
+}
+
+
+.background-layer.active {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+/* INTRO */
+
+.layer-intro {
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(181, 120, 255, .20),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 122, 184, .12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #090611,
+            #150b25 50%,
+            #08050e
+        );
+}
+
+
+/* GARDEN */
+
+.layer-garden {
+    background:
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(43, 112, 80, .32),
+            transparent 48%
+        ),
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(255, 125, 180, .12),
+            transparent 25%
+        ),
+        linear-gradient(
+            145deg,
+            #071510,
+            #10251e 45%,
+            #070b0d
+        );
+}
+
+
+/* MEMORY */
+
+.layer-memory {
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(146, 110, 255, .18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #10091c,
+            #1c1029,
+            #080611
+        );
+}
+
+
+/* RIZZ */
+
+.layer-rizz {
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255, 111, 174, .20),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 75% 25%,
+            rgba(140, 104, 255, .15),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #130812,
+            #240d22,
+            #09050d
+        );
+}
+
+
+/* LOTUS */
+
+.layer-lotus {
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 119, 179, .22),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(83, 54, 148, .20),
+            transparent 45%
+        ),
+        linear-gradient(
+            160deg,
+            #110818,
+            #1c1027,
+            #08050d
+        );
+}
+
+
+/* PROPOSAL */
+
+.layer-proposal {
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255, 147, 195, .28),
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(153, 108, 255, .16),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #170914,
+            #281020,
+            #0a050d
+        );
+}
+
+
+/* =====================================================
+   PAGES
+===================================================== */
+
+.page {
+    position: absolute;
+    inset: 0;
+
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 90px 30px 50px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        translateY(35px)
+        scale(.97);
+
+    transition:
+        opacity .75s ease,
+        transform .85s cubic-bezier(.2,.8,.2,1),
+        visibility .75s;
+
+    pointer-events: none;
+}
+
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events: auto;
+}
+
+
+.page.leaving {
+    opacity: 0;
+
+    transform:
+        translateY(-35px)
+        scale(.97);
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.page-content,
+.intro-content,
+.proposal-content {
+    position: relative;
+
+    width: min(1000px, 100%);
+
+    text-align: center;
+
+    z-index: 10;
+}
+
+
+.intro-content {
+    max-width: 760px;
+}
+
+
+.eyebrow {
+    font-family:
+        Arial,
+        sans-serif;
+
+    text-transform: uppercase;
+
+    letter-spacing: .32em;
+
+    font-size: 11px;
+
+    color:
+        rgba(255, 215, 232, .68);
+
+    margin-bottom: 20px;
+}
+
+
+h1,
+h2 {
+    font-weight: 400;
+
+    letter-spacing: -.03em;
+}
+
+
+h1 {
+    font-size:
+        clamp(70px, 13vw, 150px);
+
+    line-height: .9;
+
+    color: #fff7fb;
+
+    text-shadow:
+        0 0 35px rgba(255, 159, 197, .22);
+}
+
+
+h2 {
+    font-size:
+        clamp(38px, 6vw, 72px);
+
+    line-height: 1;
+
+    margin-bottom: 22px;
+
+    color: #fff8fc;
+}
+
+
+.title-line {
+    width: 80px;
+    height: 1px;
+
+    margin: 30px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--pink),
+            transparent
+        );
+}
+
+
+.intro-description,
+.page-description,
+.proposal-text {
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+    color:
+        rgba(255, 239, 247, .67);
+
+    letter-spacing: .03em;
+}
+
+
+/* =====================================================
+   INTRO ORB
+===================================================== */
+
+.intro-orb {
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -55%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 140, 192, .11),
+            transparent 65%
+        );
+
+    filter: blur(5px);
+
+    z-index: -1;
+
+    animation:
+        orbFloat 5s ease-in-out infinite;
+}
+
+
+@keyframes orbFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -55%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -55%)
+            scale(1.15);
+    }
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button {
+    font: inherit;
+}
+
+
+.primary-button,
+.next-button {
+    border: 1px solid
+        rgba(255, 196, 219, .28);
+
+    background:
+        rgba(255, 255, 255, .045);
+
+    color: #fff7fb;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(15px);
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.primary-button {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 28px;
+
+    padding: 16px 23px;
+
+    margin-top: 34px;
+
+    border-radius: 100px;
+}
+
+
+.primary-button:hover,
+.next-button:hover {
+    transform: translateY(-4px);
+
+    background:
+        rgba(255, 164, 201, .11);
+
+    border-color:
+        rgba(255, 196, 219, .65);
+
+    box-shadow:
+        0 15px 40px rgba(255, 113, 169, .12);
+}
+
+
+.button-arrow {
+    color: var(--pink);
+
+    font-size: 20px;
+}
+
+
+.next-button {
+    padding: 14px 22px;
+
+    border-radius: 100px;
+
+    margin-top: 25px;
+}
+
+
+.next-button span {
+    margin-left: 15px;
+
+    color: var(--pink);
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =====================================================
+   GARDEN
+===================================================== */
+
+.garden-content {
+    max-width: 1100px;
+}
+
+
+.flower-garden {
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    gap: clamp(30px, 9vw, 130px);
+
+    width: 100%;
+
+    min-height: 360px;
+
+    margin-top: 10px;
+}
+
+
+/* REAL FLOWER BUTTON */
+
+.flower-object {
+    position: relative;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    transition:
+        transform .6s cubic-bezier(.2,.8,.2,1),
+        filter .5s ease;
+}
+
+
+.flower-object img {
+    display: block;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 25px 25px
+            rgba(0,0,0,.42)
+        )
+        drop-shadow(
+            0 0 20px
+            rgba(255,174,209,.18)
+        );
+
+    transition:
+        transform .6s cubic-bezier(.2,.8,.2,1),
+        filter .5s ease;
+}
+
+
+/* LILY */
+
+.flower-object.lily {
+    width: 250px;
+    height: 330px;
+}
+
+
+.flower-object.lily img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* LOTUS */
+
+.flower-object.lotus {
+    width: 300px;
+    height: 300px;
+}
+
+
+.flower-object.lotus img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* FLOWER NAME */
+
+.flower-name {
+    position: absolute;
+
+    bottom: -5px;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateY(15px);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: .22em;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(255,235,245,.55);
+
+    opacity: 0;
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+
+    pointer-events: none;
+}
+
+
+.flower-object:hover {
+    transform:
+        translateY(-14px)
+        scale(1.04);
+}
+
+
+.flower-object:hover img {
+    filter:
+        drop-shadow(
+            0 30px 30px
+            rgba(0,0,0,.45)
+        )
+        drop-shadow(
+            0 0 35px
+            rgba(255,170,210,.48)
+        );
+}
+
+
+.flower-object:hover .flower-name {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+.flower-object:active {
+    transform:
+        translateY(-5px)
+        scale(.98);
+}
+
+
+/* MESSAGE */
+
+.message-box {
+    min-height: 28px;
+
+    margin: 8px auto 0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    color:
+        rgba(255,231,242,.72);
+
+    transition:
+        opacity .4s ease;
+}
+
+
+/* =====================================================
+   MEMORY
+===================================================== */
+
+.memory-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    max-width: 850px;
+
+    margin: 45px auto 30px;
+}
+
+
+.memory-card {
+    position: relative;
+
+    min-height: 180px;
+
+    padding: 30px 20px;
+
+    border:
+        1px solid
+        rgba(255,210,230,.13);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.018)
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(18px);
+
+    overflow: hidden;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        background .4s ease;
+}
+
+
+.memory-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    top: -70px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,157,198,.10);
+
+    filter: blur(20px);
+}
+
+
+.memory-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(255,178,211,.35);
+
+    background:
+        rgba(255,255,255,.09);
+}
+
+
+.memory-card.opened {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(255,170,207,.55);
+
+    background:
+        rgba(255,145,194,.10);
+}
+
+
+.card-number {
+    position: absolute;
+
+    top: 16px;
+    left: 18px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: .15em;
+
+    color:
+        rgba(255,255,255,.28);
+}
+
+
+.card-icon {
+    display: block;
+
+    font-size: 32px;
+
+    color: var(--pink);
+
+    margin-bottom: 25px;
+}
+
+
+.card-title {
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: .08em;
+}
+
+
+.memory-message {
+    min-height: 30px;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,235,245,.75);
+}
+
+
+/* =====================================================
+   RIZZ
+===================================================== */
+
+.rizz-content {
+    max-width: 800px;
+}
+
+
+.rizz-symbol {
+    font-size: 35px;
+
+    color: var(--pink);
+
+    margin-bottom: 35px;
+
+    animation:
+        heartFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes heartFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+.rizz-stage {
+    position: relative;
+
+    min-height: 130px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.rizz-line {
+    max-width: 720px;
+
+    font-size:
+        clamp(26px, 4vw, 46px);
+
+    line-height: 1.25;
+
+    color: #fff5fa;
+
+    text-shadow:
+        0 0 30px
+        rgba(255,159,197,.16);
+
+    animation:
+        rizzIn .8s ease;
+}
+
+
+@keyframes rizzIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+.rizz-glow {
+    position: absolute;
+
+    width: 300px;
+    height: 150px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,114,177,.13),
+            transparent 65%
+        );
+
+    filter: blur(15px);
+
+    z-index: -1;
+}
+
+
+/* =====================================================
+   LOTUS PAGE
+===================================================== */
+
+.lotus-page-content {
+    max-width: 850px;
+}
+
+
+.big-lotus {
+    position: relative;
+
+    width: 310px;
+    height: 310px;
+
+    margin: 35px auto 10px;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition:
+        transform .7s cubic-bezier(.2,.8,.2,1);
+}
+
+
+.big-lotus:hover {
+    transform:
+        scale(1.05);
+}
+
+
+.big-lotus-glow {
+    position: absolute;
+
+    inset: 20%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,157,204,.30),
+            transparent 65%
+        );
+
+    filter: blur(20px);
+
+    animation:
+        lotusGlow 3s ease-in-out infinite;
+}
+
+
+@keyframes lotusGlow {
+
+    0%,
+    100% {
+        transform: scale(.9);
+
+        opacity: .7;
+    }
+
+    50% {
+        transform: scale(1.15);
+
+        opacity: 1;
+    }
+}
+
+
+/* LOTUS PETALS */
+
+.big-lotus-petal {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 80px;
+    height: 150px;
+
+    transform-origin: 50% 90%;
+
+    border-radius:
+        50% 50% 48% 48%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe5f1,
+            #f89cc5 70%,
+            #c95c8d
+        );
+
+    box-shadow:
+        inset 0 0 12px
+        rgba(255,255,255,.4),
+
+        0 0 18px
+        rgba(255,138,190,.15);
+
+    transform:
+        translate(-50%, -85%)
+        rotate(var(--angle))
+        scale(.8);
+}
+
+
+/* PETAL POSITIONS */
+
+.blp1 { --angle: 0deg; }
+.blp2 { --angle: 45deg; }
+.blp3 { --angle: 90deg; }
+.blp4 { --angle: 135deg; }
+.blp5 { --angle: 180deg; }
+.blp6 { --angle: 225deg; }
+.blp7 { --angle: 270deg; }
+.blp8 { --angle: 315deg; }
+
+
+.big-lotus-core {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 70px;
+    height: 70px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffd875,
+            #e99b38
+        );
+
+    color: white;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 0 30px
+        rgba(255,202,102,.55);
+}
+
+
+.big-lotus.open {
+    transform:
+        scale(1.12);
+}
+
+
+.big-lotus.open .big-lotus-petal {
+    transform:
+        translate(-50%, -85%)
+        rotate(var(--angle))
+        scale(1);
+}
+
+
+.lotus-ring {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border:
+        1px solid
+        rgba(255,176,211,.16);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    animation:
+        ringPulse 3s ease-in-out infinite;
+}
+
+
+.ring-one {
+    width: 230px;
+    height: 230px;
+}
+
+
+.ring-two {
+    width: 270px;
+    height: 270px;
+
+    animation-delay: .7s;
+}
+
+
+.ring-three {
+    width: 310px;
+    height: 310px;
+
+    animation-delay: 1.4s;
+}
+
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+        opacity: .15;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.94);
+    }
+
+    50% {
+        opacity: .45;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.05);
+    }
+}
+
+
+.lotus-hint {
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .25em;
+
+    color:
+        rgba(255,223,238,.45);
+}
+
+
+/* =====================================================
+   PROPOSAL
+===================================================== */
+
+.proposal-content {
+    max-width: 850px;
+}
+
+
+.proposal-glow {
+    position: absolute;
+
+    width: 450px;
+    height: 300px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,130,184,.16),
+            transparent 68%
+        );
+
+    filter: blur(20px);
+
+    z-index: -1;
+}
+
+
+.proposal-content h2 {
+    font-size:
+        clamp(55px, 8vw, 100px);
+}
+
+
+.proposal-divider {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    margin: 35px auto;
+
+    color: var(--gold);
+}
+
+
+.proposal-divider span {
+    width: 80px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,218,163,.45)
+        );
+}
+
+
+.proposal-divider span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,218,163,.45),
+            transparent
+        );
+}
+
+
+.proposal-question {
+    font-size:
+        clamp(30px, 5vw, 54px);
+
+    color: #fff5fa;
+
+    margin-bottom: 35px;
+}
+
+
+.proposal-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.yes-button,
+.maybe-button {
+    padding: 15px 28px;
+
+    border-radius: 100px;
+
+    cursor: pointer;
+
+    font-family: Arial, sans-serif;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.yes-button {
+    border: 1px solid
+        rgba(255,188,215,.6);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,122,176,.8),
+            rgba(192,112,255,.7)
+        );
+
+    color: white;
+
+    box-shadow:
+        0 10px 40px
+        rgba(255,110,177,.18);
+}
+
+
+.maybe-button {
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.04);
+
+    color:
+        rgba(255,240,248,.75);
+}
+
+
+.yes-button:hover,
+.maybe-button:hover {
+    transform:
+        translateY(-4px);
+}
+
+
+.proposal-note {
+    min-height: 25px;
+
+    margin-top: 22px;
+
+    font-family: Arial, sans-serif;
+
+    color:
+        rgba(255,221,236,.65);
+}
+
+
+/* =====================================================
+   SUCCESS
+===================================================== */
+
+.success-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,129,185,.20),
+            rgba(8,4,12,.97) 65%
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+.success-overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+.success-content {
+    animation:
+        successIn 1s cubic-bezier(.2,.8,.2,1);
+}
+
+
+@keyframes successIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+.success-flower {
+    font-size: 75px;
+
+    color: var(--pink);
+
+    margin-bottom: 25px;
+
+    animation:
+        successFlower 2s ease-in-out infinite;
+}
+
+
+@keyframes successFlower {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+
+.success-content h2 {
+    max-width: 650px;
+
+    margin: auto;
+
+    font-size:
+        clamp(38px, 6vw, 70px);
+}
+
+
+.success-heart {
+    margin-top: 25px;
+
+    color: var(--pink);
+
+    font-size: 30px;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-button {
+    position: fixed;
+
+    left: 25px;
+    bottom: 25px;
+
+    z-index: 50;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    background:
+        rgba(255,255,255,.05);
+
+    color: white;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(15px);
+
+    transition:
+        transform .3s ease,
+        background .3s ease;
+}
+
+
+.back-button:hover {
+    transform:
+        translateX(-4px);
+
+    background:
+        rgba(255,255,255,.10);
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+#progress {
+    position: fixed;
+
+    top: 28px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 50;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+
+.progress-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.22);
+
+    transition:
+        transform .4s ease,
+        background .4s ease,
+        box-shadow .4s ease;
+}
+
+
+.progress-dot.active {
+    transform: scale(1.7);
+
+    background:
+        var(--pink);
+
+    box-shadow:
+        0 0 12px
+        rgba(255,154,198,.7);
+}
+
+
+.progress-line {
+    width: 28px;
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.12);
+}
+
+
+/* =====================================================
+   STARS
+===================================================== */
+
+#stars,
+#fireflies,
+#petals,
+#confetti {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 2;
+}
+
+
+.star {
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: white;
+
+    opacity: .3;
+
+    animation:
+        starTwinkle 3s ease-in-out infinite;
+}
+
+
+@keyframes starTwinkle {
+
+    0%,
+    100% {
+        opacity: .15;
+    }
+
+    50% {
+        opacity: .9;
+    }
+}
+
+
+.firefly {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: #ffd9a8;
+
+    box-shadow:
+        0 0 12px
+        rgba(255,214,148,.8);
+
+    opacity: .5;
+
+    animation:
+        fireflyFloat 6s ease-in-out infinite;
+}
+
+
+@keyframes fireflyFloat {
+
+    0% {
+        transform:
+            translate(0, 20px);
+
+        opacity: .15;
+    }
+
+    50% {
+        transform:
+            translate(20px, -30px);
+
+        opacity: .8;
+    }
+
+    100% {
+        transform:
+            translate(-10px, -60px);
+
+        opacity: 0;
+    }
+}
+
+
+.confetti-piece {
+    position: absolute;
+
+    top: -30px;
+
+    animation:
+        confettiFall linear forwards;
+}
+
+
+@keyframes confettiFall {
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .page {
+        padding:
+            75px 18px 35px;
+    }
+
+
+    h2 {
+        font-size: 42px;
+    }
+
+
+    .flower-garden {
+        gap: 8px;
+
+        min-height: 300px;
+    }
+
+
+    .flower-object.lily {
+        width: 170px;
+        height: 260px;
+    }
+
+
+    .flower-object.lotus {
+        width: 200px;
+        height: 230px;
+    }
+
+
+    .memory-cards {
+        grid-template-columns: 1fr;
+
+        margin-top: 25px;
+
+        gap: 10px;
+    }
+
+
+    .memory-card {
+        min-height: 105px;
+
+        padding: 20px;
+    }
+
+
+    .card-icon {
+        display: inline-block;
+
+        margin:
+            0 15px 0 0;
+    }
+
+
+    .big-lotus {
+        width: 260px;
+        height: 260px;
+    }
+
+
+    .proposal-buttons {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    .yes-button,
+    .maybe-button {
+        width: min(280px, 90%);
+    }
+
+
+    .progress-line {
+        width: 16px;
+    }
+
+}
+
+
+@media (max-height: 700px) {
+
+    .flower-garden {
+        min-height: 250px;
+    }
+
+
+    .flower-object.lily {
+        height: 230px;
+        width: 175px;
+    }
+
+
+    .flower-object.lotus {
+        height: 220px;
+        width: 210px;
+    }
+
+
+    .big-lotus {
+        width: 230px;
+        height: 230px;
+
+        margin-top: 15px;
+    }
+
+
+    .memory-cards {
+        margin-top: 20px;
+    }
+
+}

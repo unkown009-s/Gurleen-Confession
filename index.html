@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta name="theme-color" content="#090611">
+
+    <title>For Gurleen ♡</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<div id="app">
+
+
+    <!-- =================================================
+         BACKGROUND
+    ================================================== -->
+
+    <div id="background">
+
+        <div class="background-layer layer-intro"></div>
+        <div class="background-layer layer-garden"></div>
+        <div class="background-layer layer-memory"></div>
+        <div class="background-layer layer-rizz"></div>
+        <div class="background-layer layer-lotus"></div>
+        <div class="background-layer layer-proposal"></div>
+
+    </div>
+
+
+    <!-- =================================================
+         AMBIENT PARTICLES
+    ================================================== -->
+
+    <div id="stars"></div>
+    <div id="fireflies"></div>
+    <div id="petals"></div>
+    <div id="confetti"></div>
+
+
+    <!-- =================================================
+         PROGRESS
+    ================================================== -->
+
+    <div id="progress">
+
+        <div class="progress-dot active"></div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-dot"></div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-dot"></div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-dot"></div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-dot"></div>
+
+    </div>
+
+
+    <!-- =================================================
+         PAGE 1
+    ================================================== -->
+
+    <section
+        class="page active"
+        id="page-intro"
+        data-page="0"
+    >
+
+        <div class="intro-content">
+
+            <div class="intro-orb"></div>
+
+            <p class="eyebrow">
+                A little something for you
+            </p>
+
+            <h1>
+                Gurleen
+            </h1>
+
+            <div class="title-line"></div>
+
+            <p class="intro-description">
+
+                I could have just said what I wanted to say...
+
+                <br>
+
+                but where's the fun in that?
+
+            </p>
+
+
+            <button
+                class="primary-button"
+                id="startButton"
+            >
+
+                <span>Enter</span>
+
+                <span class="button-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PAGE 2 — FLOWER GARDEN
+    ================================================== -->
+
+    <section
+        class="page"
+        id="page-garden"
+        data-page="1"
+    >
+
+        <div class="page-content garden-content">
+
+            <p class="eyebrow">
+                Chapter I
+            </p>
+
+            <h2>
+                A little garden
+            </h2>
+
+            <p class="page-description">
+
+                Two flowers.
+
+                <br>
+
+                One of them has something to tell you.
+
+            </p>
+
+
+            <!-- REAL FLOWERS -->
+
+            <div
+                class="flower-garden"
+                id="flowerGarden"
+            >
+
+
+                <!-- LILY -->
+
+                <button
+                    class="flower-object lily"
+                    data-flower="lily"
+                    aria-label="Lily"
+                >
+
+                    <img
+                        src="assets/lily.png"
+                        alt="White Lily"
+                    >
+
+                    <span class="flower-name">
+                        Lily
+                    </span>
+
+                </button>
+
+
+
+                <!-- LOTUS -->
+
+                <button
+                    class="flower-object lotus"
+                    data-flower="lotus"
+                    aria-label="Lotus"
+                >
+
+                    <img
+                        src="assets/lotus.png"
+                        alt="Pink Lotus"
+                    >
+
+                    <span class="flower-name">
+                        Lotus
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <div
+                class="message-box"
+                id="gardenMessage"
+            >
+
+                <span>
+                    Choose a flower...
+                </span>
+
+            </div>
+
+
+            <!-- NEXT -->
+
+            <button
+                class="next-button hidden"
+                id="gardenNext"
+            >
+
+                Continue
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PAGE 3 — MEMORY
+    ================================================== -->
+
+    <section
+        class="page"
+        id="page-memory"
+        data-page="2"
+    >
+
+        <div class="page-content">
+
+            <p class="eyebrow">
+                Chapter II
+            </p>
+
+            <h2>
+                Maybe it's the little things
+            </h2>
+
+            <p class="page-description">
+                Tap each one.
+            </p>
+
+
+            <div class="memory-cards">
+
+
+                <button
+                    class="memory-card"
+                    data-message="Some people make ordinary moments feel a little less ordinary."
+                >
+
+                    <span class="card-number">
+                        01
+                    </span>
+
+                    <span class="card-icon">
+                        ✦
+                    </span>
+
+                    <span class="card-title">
+                        Little things
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    class="memory-card"
+                    data-message="Sometimes one person can become the reason you smile at your phone."
+                >
+
+                    <span class="card-number">
+                        02
+                    </span>
+
+                    <span class="card-icon">
+                        ♡
+                    </span>
+
+                    <span class="card-title">
+                        That smile
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    class="memory-card"
+                    data-message="And sometimes... you realize you really, really like someone."
+                >
+
+                    <span class="card-number">
+                        03
+                    </span>
+
+                    <span class="card-icon">
+                        ❀
+                    </span>
+
+                    <span class="card-title">
+                        The reason
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+            <p
+                class="memory-message"
+                id="memoryMessage"
+            ></p>
+
+
+            <button
+                class="next-button hidden"
+                id="memoryNext"
+            >
+
+                I have one more thing
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PAGE 4 — RIZZ
+    ================================================== -->
+
+    <section
+        class="page"
+        id="page-rizz"
+        data-page="3"
+    >
+
+        <div class="page-content rizz-content">
+
+            <p class="eyebrow">
+                Chapter III
+            </p>
+
+
+            <div class="rizz-symbol">
+                ♡
+            </div>
+
+
+            <div
+                class="rizz-stage"
+                id="rizzStage"
+            >
+
+                <p
+                    class="rizz-line"
+                    id="rizzLine"
+                >
+                    I tried to find the perfect words...
+                </p>
+
+            </div>
+
+
+            <div class="rizz-glow"></div>
+
+
+            <button
+                class="primary-button"
+                id="rizzButton"
+            >
+
+                <span>
+                    Continue
+                </span>
+
+                <span class="button-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PAGE 5 — LOTUS
+    ================================================== -->
+
+    <section
+        class="page"
+        id="page-lotus"
+        data-page="4"
+    >
+
+        <div class="page-content lotus-page-content">
+
+            <p class="eyebrow">
+                Almost there
+            </p>
+
+            <h2>
+                One last flower
+            </h2>
+
+            <p class="page-description">
+
+                Some things are better
+                <br>
+                when they bloom slowly.
+
+            </p>
+
+
+            <button
+                class="big-lotus"
+                id="bigLotus"
+                aria-label="Open the lotus"
+            >
+
+                <span class="big-lotus-glow"></span>
+
+                <span class="lotus-ring ring-one"></span>
+                <span class="lotus-ring ring-two"></span>
+                <span class="lotus-ring ring-three"></span>
+
+
+                <span class="big-lotus-petal blp1"></span>
+                <span class="big-lotus-petal blp2"></span>
+                <span class="big-lotus-petal blp3"></span>
+                <span class="big-lotus-petal blp4"></span>
+                <span class="big-lotus-petal blp5"></span>
+                <span class="big-lotus-petal blp6"></span>
+                <span class="big-lotus-petal blp7"></span>
+                <span class="big-lotus-petal blp8"></span>
+
+
+                <span class="big-lotus-core">
+                    ♡
+                </span>
+
+            </button>
+
+
+            <p
+                class="lotus-hint"
+                id="lotusHint"
+            >
+                Tap the lotus
+            </p>
+
+
+            <button
+                class="next-button hidden"
+                id="proposalButton"
+            >
+
+                Open the final page
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PAGE 6 — PROPOSAL
+    ================================================== -->
+
+    <section
+        class="page"
+        id="page-proposal"
+        data-page="5"
+    >
+
+        <div class="proposal-content">
+
+
+            <div class="proposal-glow"></div>
+
+
+            <p class="eyebrow">
+                So...
+            </p>
+
+
+            <h2>
+                Gurleen
+            </h2>
+
+
+            <p class="proposal-text">
+
+                I've been hiding the real reason
+                <br>
+                I made all of this.
+
+            </p>
+
+
+            <div class="proposal-divider">
+
+                <span></span>
+
+                ✦
+
+                <span></span>
+
+            </div>
+
+
+            <p class="proposal-question">
+                Will you be mine?
+            </p>
+
+
+            <div class="proposal-buttons">
+
+
+                <button
+                    class="yes-button"
+                    id="yesButton"
+                >
+
+                    Yes ♡
+
+                </button>
+
+
+                <button
+                    class="maybe-button"
+                    id="maybeButton"
+                >
+
+                    I need some time
+
+                </button>
+
+
+            </div>
+
+
+            <p
+                class="proposal-note"
+                id="proposalNote"
+            ></p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         SUCCESS
+    ================================================== -->
+
+    <div
+        id="successOverlay"
+        class="success-overlay"
+    >
+
+        <div class="success-content">
+
+            <div class="success-flower">
+                ❀
+            </div>
+
+            <p class="eyebrow">
+                And just like that...
+            </p>
+
+            <h2>
+                You made the garden bloom.
+            </h2>
+
+            <p class="success-heart">
+                ♡
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         BACK BUTTON
+    ================================================== -->
+
+    <button
+        id="backButton"
+        class="back-button hidden"
+        aria-label="Previous page"
+    >
+
+        ←
+
+    </button>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
